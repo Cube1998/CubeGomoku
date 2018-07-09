@@ -7,12 +7,16 @@
 //
 
 #include <iostream>
-#include "Board.hpp"
+
+#include "BoardManager.hpp"
 
 int main(int argc, const char * argv[]) {
 
+    boardManager* gamepad;
     board *test_Board = new board();
-    for(int i = 0;i<6;i++)
-    test_Board->setPiece(rand()%15, rand()%15);
+    
+    gamepad->create_pattern();
+    gamepad->load_Patterns();
+    //gamepad->print();
     
 }
