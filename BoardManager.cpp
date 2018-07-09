@@ -106,7 +106,7 @@ void boardManager::load_Patterns(){
         cout<<"Pattern : ";
         for(int i = 0;i < 6;i++)cout<<(*it).Sequence[i]<<"  ";
         cout<<endl<<"Score :"<<(*it).score<<"  "<<endl;
-        EPatterns.push_back((*it));
+        //EPatterns.push_back((*it));
     }
     //EPatterns = tmp_Vector;
     fin.close();

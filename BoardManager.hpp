@@ -15,25 +15,10 @@
 #include <string>
 #include <vector>
 #include "Board.hpp"
+#include "pattern.h"
 using namespace std;
 
-class Evaluate_pattern {
-public:
-    bool* Sequence ;
-    int score ;
-    
-    Evaluate_pattern(){
-        Sequence = new bool[6];
-        score = 0;
-    };
-    
-    Evaluate_pattern(const Evaluate_pattern & copy){
-        Sequence = new bool[6];
-        for(int i = 0;i<6;i++)Sequence[i] = copy.Sequence[i];
-        this->score = copy.score;
-    }
-    
-};
+
 
 class boardManager{
 private:
