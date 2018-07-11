@@ -101,7 +101,7 @@ void PeopVSComp::startGame() {
     search_width = 4;
   } else {
     search_depth = 3;
-    search_width = 6;
+    search_width = 10;
   }
 
   if (!(*p_move_first)) {
@@ -151,7 +151,7 @@ void PeopVSComp::mousePressEvent(QMouseEvent *e) {
     int chessboard_x = (pos_x - TO_LEFT) / DISTANCE;
     int chessboard_y = (pos_y - TO_UP) / DISTANCE;
     qDebug() << "not saved" << chessboard_x << chessboard_y;
-    if (pos_x >= 73 && pos_x <= 493 && pos_y >= 87 && pos_y <= 507 &&
+    if (pos_x >= 50 && pos_x <= 470 && pos_y >= 69 && pos_y <= 489 &&
         drawed[chessboard_y][chessboard_x] == 0) {
       qDebug() << chessboard_x << chessboard_y;
       nodeStack.nodes[++nodeStack.top] = aNode;
@@ -160,7 +160,7 @@ void PeopVSComp::mousePressEvent(QMouseEvent *e) {
       drawed[chessboard_y][chessboard_x] = 1;
       chessBoard[chessboard_y][chessboard_x] = RIVAL;
       if (win(chessBoard, chessboard_y, chessboard_x, RIVAL)) {
-        winSound->play();
+
         QMessageBox::StandardButton reply;
         reply = QMessageBox::question(
             this, "", QString::fromUtf8("你太厉害了，膜拜一下！"));
@@ -210,7 +210,7 @@ void PeopVSComp::computer_move() {
   repaint();
 
   if (win(chessBoard, search.bestMove.x, search.bestMove.y, MYSELF)) {
-    loseSound->play();
+
     QMessageBox::StandardButton reply;
     reply = QMessageBox::question(
         this, "", QString::fromUtf8("对不起，你输了，再接再厉！"));

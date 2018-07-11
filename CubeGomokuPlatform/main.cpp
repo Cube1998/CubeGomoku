@@ -22,6 +22,7 @@ struct Platform{
 void Print(char ChessBoard[15][15]){
     for(int i = 0;i<31;i++)
         cout<<"=";
+    cout<<endl;
     for(int k = 14;k>-1;k--){
         cout<<"|";
         for (int m = 0;m<15;m++)
@@ -31,6 +32,7 @@ void Print(char ChessBoard[15][15]){
     }
     for(int i = 0;i<31;i++)
         cout<<"=";
+    cout<<endl;
 
 
 
@@ -58,15 +60,16 @@ int main(int argc, char *argv[])
             for(int l = 0 ;l<15;l++)
                 Game.gamepad->chessboard[m][l] = EMPTY;
 
+        if(Player1_to_go)ME = Player1;
+        else ME = Player2;
         while(1){
-            if(Player1_to_go)ME = Player1;
-            else ME = Player2;
 
-            CubeAI* CubeAI =new CubeAI(3,6,Game.gamepad->chessboard);
-            CubeAI-> alphaBetaSearch(1,-INIT_MAX,INIT_MAX,ME);
 
-            int xx = CubeAI->bestMove.x;
-            int yy = CubeAI->bestMove.y;
+            CubeAI* Cube =new CubeAI(2,4,Game.gamepad->chessboard);
+            Cube -> alphaBetaSearch(1,-INIT_MAX,INIT_MAX,ME);
+
+            int xx = Cube->bestMove.x;
+            int yy = Cube->bestMove.y;
 
             Game.gamepad->chessboard[xx][yy] = ME;
 
@@ -88,13 +91,14 @@ int main(int argc, char *argv[])
                     break;
                 }
             }
-            delete CubeAI;
+            delete Cube;
 
-            Player1_to_go = !Player1_to_go;
 
+            ME = (ME == Player1)? Player2 : Player1;
 
 
         }
+         Player1_to_go = !Player1_to_go;
         delete Game.gamepad;
         Game.gamepad = NULL;
     }
