@@ -4,24 +4,20 @@
 #include <QPainter>
 #include <QLine>
 
-#define TO_UP 87      //棋局到图片顶端的像素距离
-#define TO_LEFT 73    //棋局到图片左端的像素距离
+#define TO_UP 69      //棋局到图片顶端的像素距离
+#define TO_LEFT 50    //棋局到图片左端的像素距离
 #define DISTANCE 30   //两个棋子之间的距离为30
-#define CENTER_X 283  //第8行第8列的x坐标
-#define CENTER_Y 297  //第8行第8列的y坐标
+#define CENTER_X 260  //第8行第8列的x坐标
+#define CENTER_Y 279  //第8行第8列的y坐标
 
 PeopVSComp::PeopVSComp(QWidget *parent) : QDialog(parent) {
   //设置背景图片
   QPalette palette;
-  //QPixmap pixmap(":/resource/image/board4.bmp");
-  QPixmap pixmap(":/resource/image/chessboard.bmp");
+  QPixmap pixmap(":/resource/image/board4.bmp");
+  //QPixmap pixmap(":/resource/image/chessboard.bmp");
   palette.setBrush(QPalette::Background, QBrush(pixmap));
   setPalette(palette);
   setFixedSize(pixmap.size());
-
-  //QPixmap grids_pix(":/resource/image/Board3.png");
-  //QPainter p(this);
-  //p.drawImage(TO_LEFT,TO_UP,grids_pix);
 
 
   //用正则表达式获得项目的绝对路径
@@ -30,10 +26,10 @@ PeopVSComp::PeopVSComp(QWidget *parent) : QDialog(parent) {
   projectPath = regexp.cap(1) + "Renju/";
 
   //设置声音
-  qDebug() << projectPath;
-  moveSound = new QSound(projectPath + "resource/sound/move.wav");
-  winSound = new QSound(projectPath + "resource/sound/win.wav");
-  loseSound = new QSound(projectPath + "resource/sound/lose.wav ");
+  //qDebug() << projectPath;
+  //moveSound = new QSound(projectPath + "resource/sound/move.wav");
+  //winSound = new QSound(projectPath + "resource/sound/win.wav");
+  //loseSound = new QSound(projectPath + "resource/sound/lose.wav ");
 
   //设置图片
   blackImage = new QImage(":/resource/image/black.bmp");

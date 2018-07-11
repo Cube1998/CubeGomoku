@@ -24,6 +24,8 @@ class Search {
                       char player);     // alpha-beta剪枝搜索算法
   bool win(int x, int y, char player);  //判断能否赢
   Node bestMove;                        //记录下一步要走的地方
+
+  Node GivenSolution();
  private:
   int depth;           //搜索的深度
   int numOfGoodNodes;  //几个比较好的点的个数，以减小收缩的复杂度
