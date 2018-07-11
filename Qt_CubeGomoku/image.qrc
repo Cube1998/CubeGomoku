@@ -1,0 +1,15 @@
+<RCC>
+    <qresource prefix="/">
+        <file>resource/image/black.bmp</file>
+        <file>resource/image/chessboard.bmp</file>
+        <file>resource/image/dota_background.bmp</file>
+        <file>resource/image/white.bmp</file>
+        <file>resource/image/architecture-buildings-city-842948.jpg</file>
+        <file>resource/image/timg.jpeg</file>
+        <file>resource/image/board.jpeg</file>
+        <file>resource/image/tmp.jpeg</file>
+        <file>resource/image/board2.jpg</file>
+        <file>resource/image/Board3.png</file>
+        <file>resource/image/board4.bmp</file>
+    </qresource>
+</RCC>
